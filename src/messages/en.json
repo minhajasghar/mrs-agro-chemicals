@@ -1,1 +1,25 @@
-{"placeholder": "English content will go here"}
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "products": "Products",
+    "franchise": "Franchise",
+    "contact": "Contact",
+    "toggleToUrdu": "اردو",
+    "toggleToEnglish": "English"
+  },
+  "home": {
+    "heroTitle": "Growing Pakistan's Future, One Seed at a Time",
+    "heroSubtitle": "MRS Agro Chemicals brings you premium quality seeds trusted by farmers across the country.",
+    "ctaButton": "Explore Our Products",
+    "introHeading": "Why Choose MRS Agro Chemicals",
+    "introText": "We are committed to delivering high-yield, disease-resistant seed varieties backed by agricultural expertise and a nationwide franchise network."
+  },
+  "footer": {
+    "companyName": "MRS Agro Chemicals",
+    "phone": "+92XXXXXXXXXX",
+    "whatsapp": "WhatsApp",
+    "email": "email@placeholder.com",
+    "rights": "All rights reserved."
+  }
+}

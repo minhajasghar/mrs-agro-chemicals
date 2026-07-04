@@ -2,11 +2,13 @@
 
 import { useState } from "react";
 import { useLanguage } from "@/lib/LanguageContext";
+import { useTranslation } from "@/lib/useTranslation";
 
-const navItems = ["Home", "About", "Products", "Franchise", "Contact"];
+const navKeys = ["home", "about", "products", "franchise", "contact"];
 
 export default function Header() {
-  const { language, toggleLanguage, isRTL } = useLanguage();
+  const { language, toggleLanguage } = useLanguage();
+  const { t } = useTranslation();
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -19,13 +21,13 @@ export default function Header() {
         </div>
 
         <nav className="hidden items-center gap-6 md:flex">
-          {navItems.map((item) => (
+          {navKeys.map((key) => (
             <a
-              key={item}
+              key={key}
               href="#"
               className="transition-colors hover:text-brand-orange"
             >
-              {item}
+              {t(`nav.${key}`)}
             </a>
           ))}
         </nav>
@@ -35,7 +37,7 @@ export default function Header() {
             onClick={toggleLanguage}
             className="rounded border border-brand-cream px-3 py-1 text-sm transition-colors hover:bg-brand-cream hover:text-brand-dark-green"
           >
-            {language === "en" ? "اردو" : "English"}
+            {language === "en" ? t("nav.toggleToUrdu") : t("nav.toggleToEnglish")}
           </button>
 
           <button
@@ -64,13 +66,13 @@ export default function Header() {
 
       {menuOpen && (
         <nav className="flex flex-col border-t border-brand-cream/20 px-4 pb-4 pt-2 md:hidden">
-          {navItems.map((item) => (
+          {navKeys.map((key) => (
             <a
-              key={item}
+              key={key}
               href="#"
               className="py-2 transition-colors hover:text-brand-orange"
             >
-              {item}
+              {t(`nav.${key}`)}
             </a>
           ))}
         </nav>
