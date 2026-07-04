@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import { Poppins, Noto_Nastaliq_Urdu, Noto_Sans_Arabic } from "next/font/google";
+import { LanguageProvider } from "@/lib/LanguageContext";
+import HtmlWrapper from "@/components/HtmlWrapper";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -35,7 +39,15 @@ export default function RootLayout({
       lang="en"
       className={`${poppins.variable} ${nastaliq.variable} ${notoSansArabic.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <LanguageProvider>
+          <HtmlWrapper>
+            <Header />
+            <main className="flex-1">{children}</main>
+            <Footer />
+          </HtmlWrapper>
+        </LanguageProvider>
+      </body>
     </html>
   );
 }
