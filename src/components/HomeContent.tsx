@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useTranslation } from "@/lib/useTranslation";
 
 export default function HomeContent() {
@@ -28,12 +29,12 @@ export default function HomeContent() {
           <p className="mb-8 text-lg text-brand-charcoal/80 md:text-xl">
             {t("home.heroSubtitle")}
           </p>
-          <a
+          <Link
             href="/products"
             className="inline-block rounded bg-brand-orange px-8 py-3 text-lg font-semibold text-brand-cream transition-opacity hover:opacity-90"
           >
             {t("home.ctaButton")}
-          </a>
+          </Link>
         </div>
       </section>
 
