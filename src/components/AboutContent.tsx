@@ -25,9 +25,9 @@ export default function AboutContent() {
   const [ceoImgError, setCeoImgError] = useState(false);
 
   return (
-    <div className="bg-brand-cream overflow-hidden">
+    <div className="bg-brand-cream overflow-x-hidden">
       {/* 1. Header Hero section */}
-      <section className="relative px-4 py-24 text-center md:py-32 bg-white border-b border-brand-wheat-gold/15">
+      <section className="relative px-4 py-20 text-center md:py-24 bg-white border-b border-brand-wheat-gold/15">
         <div className="absolute inset-0 bg-field-pattern opacity-[0.015] pointer-events-none" />
         <div className="mx-auto max-w-4xl animate-fade-in-up">
           <p className="mb-3 text-xs uppercase tracking-widest text-brand-wheat-gold font-bold font-work-sans">
@@ -41,14 +41,14 @@ export default function AboutContent() {
       </section>
 
       {/* 2. Full-bleed CEO Message section */}
-      <section className="relative bg-brand-dark-green px-4 py-24 text-brand-cream">
+      <section className="relative bg-brand-dark-green px-4 py-16 md:py-20 text-brand-cream">
         <div className="absolute inset-0 bg-field-pattern opacity-[0.02] pointer-events-none" />
         <div className="mx-auto max-w-5xl">
-          <div className="flex flex-col items-center gap-12 md:flex-row md:items-start">
+          <div className="flex flex-col items-center gap-8 md:flex-row md:items-start">
             
             {/* CEO Image Container */}
             <div className="relative shrink-0 w-[240px] h-[240px] md:w-[280px] md:h-[280px] rounded-3xl border border-brand-wheat-gold/30 p-2.5 bg-white/5 backdrop-blur-sm shadow-2xl">
-              <div className="relative w-full h-full rounded-2xl overflow-hidden bg-brand-dark-green">
+              <div className="relative w-full h-full rounded-2xl overflow-hidden bg-brand-dark-green flex items-center justify-center">
                 {ceoImgError ? (
                   <div className="flex h-full w-full items-center justify-center bg-brand-charcoal/50 p-6">
                     <span className="text-center text-xs text-brand-cream/60 leading-relaxed font-work-sans">
@@ -60,7 +60,7 @@ export default function AboutContent() {
                     src="/images/ceo.jpeg"
                     alt={t("about.ceoImageAlt")}
                     fill
-                    className="object-cover"
+                    className="object-contain p-1"
                     sizes="(max-w-md) 100vw, 280px"
                     onError={() => setCeoImgError(true)}
                   />
@@ -70,10 +70,10 @@ export default function AboutContent() {
 
             {/* CEO Text */}
             <div className="flex-1 text-start">
-              <span className="text-xs uppercase tracking-widest text-brand-wheat-gold font-bold font-work-sans mb-3 block">
+              <span className="text-xs uppercase tracking-widest text-brand-wheat-gold font-bold font-work-sans mb-2 block">
                 {language === "ur" ? "چیف ایگزیکٹو کا پیغام" : "Executive Statement"}
               </span>
-              <h2 className="mb-6 text-3xl font-bold text-brand-cream font-fraunces leading-snug">
+              <h2 className="mb-4 text-3xl font-bold text-brand-cream font-fraunces leading-snug">
                 {t("about.ceoMessageHeading")}
               </h2>
               <p className="text-lg leading-relaxed text-brand-cream/85 font-light">

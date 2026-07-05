@@ -61,7 +61,7 @@ export default function RootLayout({
       lang="en"
       className={`${fraunces.variable} ${workSans.variable} ${nastaliq.variable} ${notoSansArabic.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col overflow-x-hidden">
         <LanguageProvider>
           <HtmlWrapper>
             <Header />
