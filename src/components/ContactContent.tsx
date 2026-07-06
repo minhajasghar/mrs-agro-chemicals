@@ -22,7 +22,7 @@ export default function ContactContent() {
   return (
     <div className="bg-brand-cream">
       {/* Page Hero Section */}
-      <section className="mx-auto max-w-7xl px-4 py-12 lg:py-0 lg:min-h-[calc(100vh-80px)] min-h-[550px] flex flex-col justify-center animate-fade-in-up">
+      <section className="mx-auto max-w-7xl px-4 py-12 lg:py-16 lg:min-h-[calc(100vh-80px)] min-h-[550px] flex flex-col justify-start animate-fade-in-up">
         
         {/* Main Title Block */}
         <div className="mb-16 text-center">

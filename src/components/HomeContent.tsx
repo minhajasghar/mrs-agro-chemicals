@@ -115,7 +115,7 @@ export default function HomeContent() {
       <FieldRowDivider />
 
       {/* Premium Intro & Values Section */}
-      <section className="bg-brand-cream px-4 py-24 md:py-32">
+      <section className="bg-brand-cream px-4 py-24">
         <div className="mx-auto max-w-7xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             

@@ -27,7 +27,7 @@ export default function AboutContent() {
   return (
     <div className="bg-brand-cream overflow-x-hidden">
       {/* 1. Hero Title Section */}
-      <section className="relative bg-brand-dark-green px-4 py-16 lg:py-0 lg:h-[calc(100vh-80px)] min-h-[600px] lg:min-h-0 flex items-center text-brand-cream border-b border-brand-wheat-gold/15">
+      <section className="relative bg-brand-dark-green px-4 py-16 flex items-center text-brand-cream border-b border-brand-wheat-gold/15">
         <div className="absolute inset-0 bg-field-pattern opacity-[0.02] pointer-events-none" />
         <div className="mx-auto max-w-5xl w-full animate-fade-in-up">
           
@@ -50,7 +50,7 @@ export default function AboutContent() {
           <div className="flex flex-col items-center gap-8 lg:gap-12 lg:flex-row lg:items-center">
             
             {/* CEO Image Container - Circular with decorative ring */}
-            <div className="relative shrink-0 w-[200px] h-[200px] lg:w-[220px] lg:h-[220px] rounded-full ring-4 ring-brand-orange ring-offset-4 ring-offset-white shadow-xl">
+            <div className="relative shrink-0 w-[220px] h-[220px] lg:w-[240px] lg:h-[240px] rounded-full ring-4 ring-brand-orange ring-offset-4 ring-offset-white shadow-xl">
               <div className="relative w-full h-full rounded-full overflow-hidden bg-brand-dark-green">
                 {ceoImgError ? (
                   <div className="flex h-full w-full items-center justify-center bg-brand-charcoal/50 p-6">
@@ -63,8 +63,8 @@ export default function AboutContent() {
                     src="/images/ceo.jpeg"
                     alt={t("about.ceoImageAlt")}
                     fill
-                    className="object-cover"
-                    sizes="(max-w-md) 100vw, 220px"
+                    className="object-cover object-top"
+                    sizes="(max-w-md) 100vw, 240px"
                     onError={() => setCeoImgError(true)}
                   />
                 )}

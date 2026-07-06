@@ -10,7 +10,7 @@ export default function ProductsContent({ products }: { products: Product[] }) {
   return (
     <div className="bg-brand-cream overflow-hidden">
       {/* Premium Products List Section */}
-      <section className="mx-auto max-w-7xl px-4 py-24 md:py-32 animate-fade-in-up">
+      <section className="mx-auto max-w-7xl px-4 py-24 animate-fade-in-up">
         
         {/* Header Block */}
         <div className="mb-16 text-center">
