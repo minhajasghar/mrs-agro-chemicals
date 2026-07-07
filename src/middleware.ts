@@ -9,10 +9,10 @@ const JWT_SECRET = new TextEncoder().encode(
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // Admin route protection
-  if (pathname.startsWith("/admin")) {
-    // Allow login page without auth
-    if (pathname === "/admin/login") {
+  // Admin route protection (pages + API)
+  if (pathname.startsWith("/admin") || pathname.startsWith("/api/admin")) {
+    // Allow login page and login API without auth
+    if (pathname === "/admin/login" || pathname === "/api/admin/login") {
       return NextResponse.next();
     }
 
@@ -29,20 +29,11 @@ export async function middleware(request: NextRequest) {
     }
   }
 
-  // Visitor tracking for public pages (not admin, not api, not static files)
-  const isPublicPage =
-    !pathname.startsWith("/admin") &&
-    !pathname.startsWith("/api") &&
-    !pathname.startsWith("/_next") &&
-    !pathname.startsWith("/favicon") &&
-    !pathname.startsWith("/images") &&
-    !pathname.startsWith("/robots.txt") &&
-    !pathname.startsWith("/sitemap.xml") &&
-    !pathname.startsWith("/file.svg") &&
-    !pathname.startsWith("/globe.svg") &&
-    !pathname.startsWith("/window.svg") &&
-    !pathname.startsWith("/next.svg") &&
-    !pathname.startsWith("/vercel.svg");
+  // Only track actual site pages (allowlist — blocks bots probing /login, /wp-admin, etc.)
+  const publicPaths = ["/", "/about", "/contact", "/franchise", "/products"];
+  const isPublicPage = publicPaths.some(
+    (p) => pathname === p || pathname.startsWith(p + "/")
+  );
 
   if (isPublicPage) {
     const ua = request.headers.get("user-agent") || "";

@@ -30,5 +30,6 @@ model FormSubmission {
   name        String
   contactInfo String
   message     String
+  status      String   @default("new")
   createdAt   DateTime @default(now())
 }

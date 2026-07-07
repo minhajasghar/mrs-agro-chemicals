@@ -23,13 +23,13 @@ export default function ProductDetailContent({
   ];
 
   return (
-    <div className="bg-brand-cream lg:h-[calc(100vh-80px)] min-h-screen lg:min-h-0 flex flex-col justify-center py-12 lg:py-0 overflow-hidden" dir={dir}>
-      <div className="mx-auto max-w-6xl w-full px-4 animate-fade-in-up">
+    <div className="bg-brand-cream min-h-screen pt-16 lg:pt-28 pb-16 lg:pb-24 overflow-hidden" dir={dir}>
+      <div className="mx-auto max-w-7xl w-full px-4 animate-fade-in-up">
         
         {/* Back Link */}
         <Link
           href="/products"
-          className="group mb-12 inline-flex items-center gap-2 text-sm font-semibold text-brand-dark-green hover:text-brand-orange transition-colors"
+          className="group mb-10 inline-flex items-center gap-2 text-sm font-semibold text-brand-dark-green/70 hover:text-brand-orange transition-colors"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -44,52 +44,52 @@ export default function ProductDetailContent({
           <span>{t("products.backToProducts")}</span>
         </Link>
 
-        {/* Asymmetrical Detail Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        {/* Product Detail Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 lg:mt-8">
           
-          {/* Column 1: High-res Product Image */}
-          <div className="lg:col-span-6 relative w-full aspect-[4/3] sm:aspect-[16/10] rounded-3xl border border-brand-wheat-gold/25 p-3 bg-white shadow-xl">
-            <div className="relative w-full h-full rounded-2xl overflow-hidden bg-brand-cream">
+          {/* Column 1: Large Product Image */}
+          <div className="lg:col-span-7 relative w-full aspect-[4/3] rounded-3xl bg-white shadow-xl overflow-hidden">
+            <div className="relative w-full h-full bg-gradient-to-br from-brand-cream via-white to-brand-wheat-gold/10">
               <Image
                 src={product.imageUrl}
                 alt={language === "en" ? product.nameEn : product.nameUr}
                 fill
-                className="object-cover object-top"
+                className="object-contain p-6 sm:p-8 drop-shadow-2xl"
                 priority
                 sizes="(max-w-lg) 100vw, 600px"
               />
             </div>
           </div>
 
-          {/* Column 2: Product Text Specs & Actions */}
-          <div className="lg:col-span-6 flex flex-col text-start">
+          {/* Column 2: Product Info */}
+          <div className="lg:col-span-5 flex flex-col justify-center text-start">
             
             {/* Category Pill Badge */}
-            <div className="mb-4 inline-flex items-center gap-1.5 rounded-full bg-brand-dark-green/10 px-3 py-1 text-xs font-semibold text-brand-dark-green self-start font-work-sans">
+            <div className="mb-5 inline-flex items-center gap-1.5 rounded-full bg-brand-dark-green/10 px-3 py-1 text-xs font-semibold text-brand-dark-green self-start font-work-sans">
               <span className="h-1.5 w-1.5 rounded-full bg-brand-light-green" />
               <span className="font-bold">{language === "en" ? product.categoryEn : product.categoryUr}</span>
             </div>
 
-            <h1 className="mb-6 text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-dark-green font-fraunces leading-tight">
+            <h1 className="mb-5 text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-dark-green font-fraunces leading-tight">
               {language === "en" ? product.nameEn : product.nameUr}
             </h1>
 
-            <p className="text-lg leading-relaxed text-brand-charcoal/80 font-light mb-8">
+            <p className="text-base sm:text-lg leading-relaxed text-brand-charcoal/70 font-light mb-10">
               {language === "en" ? product.descriptionEn : product.descriptionUr}
             </p>
 
-            {/* Pesticide Specifications Table */}
-            <div className="mb-10 rounded-2xl border border-brand-wheat-gold/20 bg-white p-6 shadow-sm">
-              <h3 className="mb-4 text-lg font-bold text-brand-dark-green font-fraunces">
-                {language === "ur" ? "بیج کی خصوصیات" : "Technical Specifications"}
+            {/* Specifications Table */}
+            <div className="mb-8 rounded-2xl border border-brand-wheat-gold/15 bg-white/80 p-6 shadow-sm">
+              <h3 className="mb-4 text-base font-bold text-brand-dark-green font-fraunces tracking-tight">
+                {language === "ur" ? "تکنیکی خصوصیات" : "Technical Specifications"}
               </h3>
-              <div className="divide-y divide-brand-wheat-gold/15 text-sm">
+              <div className="divide-y divide-brand-wheat-gold/10 text-sm">
                 {specItems.map((item) => (
-                  <div key={item.keyEn} className="flex justify-between py-3">
+                  <div key={item.keyEn} className="flex justify-between py-2.5">
                     <span className="font-medium text-brand-charcoal/60">
                       {language === "ur" ? item.keyUr : item.keyEn}
                     </span>
-                    <span className="font-bold text-brand-dark-green">
+                    <span className="font-semibold text-brand-dark-green">
                       {language === "ur" ? item.valUr : item.valEn}
                     </span>
                   </div>
@@ -97,13 +97,13 @@ export default function ProductDetailContent({
               </div>
             </div>
 
-            {/* Franchise Partnership Call-to-Action Card */}
-            <div className="rounded-2xl bg-brand-dark-green p-6 text-brand-cream border border-brand-wheat-gold/20 relative overflow-hidden">
+            {/* Franchise CTA */}
+            <div className="rounded-2xl bg-brand-dark-green p-6 text-brand-cream relative overflow-hidden">
               <div className="absolute inset-0 bg-field-pattern opacity-[0.02] pointer-events-none" />
-              <h4 className="mb-2 text-lg font-bold font-fraunces">
+              <h4 className="mb-1.5 text-base font-bold font-fraunces tracking-tight">
                 {language === "ur" ? "تقسیم کار بنیں" : "Interested in Distributing?"}
               </h4>
-              <p className="mb-5 text-sm text-brand-cream/80 leading-relaxed font-light font-work-sans">
+              <p className="mb-5 text-sm text-brand-cream/75 leading-relaxed font-light font-work-sans">
                 {language === "ur" 
                   ? "اپنے علاقے میں آفیشل ڈیلر بننے کے لیے آج ہی فرنچائز کی درخواست جمع کروائیں۔" 
                   : "Become an authorized franchise partner and supply premium Pesticides to farmers in your area."}

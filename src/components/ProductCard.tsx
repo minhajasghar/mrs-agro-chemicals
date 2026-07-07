@@ -14,7 +14,7 @@ export default function ProductCard({ product }: { product: Product }) {
     <div className="group flex flex-col h-full rounded-3xl border border-brand-wheat-gold/20 bg-white shadow-sm transition-all duration-500 hover:shadow-xl hover:border-brand-light-green/45 hover:-translate-y-1.5 overflow-hidden">
       
       {/* Product Image Section */}
-      <div className="relative aspect-[4/3] w-full overflow-hidden bg-brand-cream border-b border-brand-wheat-gold/10">
+      <div className="relative aspect-[4/3] w-full overflow-hidden bg-gradient-to-br from-brand-cream via-white to-brand-wheat-gold/10 border-b border-brand-wheat-gold/10">
         {isPlaceholder ? (
           <div className="flex h-full w-full flex-col items-center justify-center p-6 text-brand-wheat-gold/60">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
@@ -29,7 +29,7 @@ export default function ProductCard({ product }: { product: Product }) {
             src={product.imageUrl}
             alt={language === "en" ? product.nameEn : product.nameUr}
             fill
-            className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+            className="object-contain p-4 sm:p-6 drop-shadow-xl transition-transform duration-700 group-hover:scale-105"
             sizes="(max-w-md) 100vw, 360px"
           />
         )}
