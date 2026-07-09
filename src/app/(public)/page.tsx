@@ -4,11 +4,11 @@ import HomeContent from "@/components/HomeContent";
 export const metadata: Metadata = {
   title: "MRS Agro Chemicals | Premium Quality Pesticides in Pakistan",
   description:
-    "MRS Agro Chemicals provides premium, high-yield certified Pesticides for Pakistani farmers. Explore hybrid maize, wheat, cotton, and rice varieties trusted across the country.",
+    "MRS Agro Chemicals provides premium, high-yield certified Pesticides for Pakistani farmers.",
   openGraph: {
     title: "MRS Agro Chemicals | Premium Quality Pesticides in Pakistan",
     description:
-      "MRS Agro Chemicals provides premium, high-yield certified Pesticides for Pakistani farmers. Explore hybrid maize, wheat, cotton, and rice varieties trusted across the country.",
+      "MRS Agro Chemicals provides premium, high-yield certified Pesticides for Pakistani farmers.",
     type: "website",
   },
 };

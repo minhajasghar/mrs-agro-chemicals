@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { useLanguage } from "@/lib/LanguageContext";
 import { useTranslation } from "@/lib/useTranslation";
 
@@ -22,9 +23,8 @@ export default function Header() {
     <header className="sticky top-0 z-50 backdrop-blur-md bg-brand-dark-green/90 text-brand-cream border-b border-brand-wheat-gold/20 shadow-lg">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 py-4">
         
-        {/* Logo and Brand Title */}
         <div className="flex items-center gap-3">
-          <a href="/" className="group flex items-center gap-3">
+          <Link href="/" className="group flex items-center gap-3">
             <div className="relative h-12 w-12 overflow-hidden rounded-full border border-brand-wheat-gold/30 p-0.5 bg-white/10 shadow-md transition-transform group-hover:scale-105 duration-300">
               <Image
                 src="/images/logo.jpeg"
@@ -37,23 +37,21 @@ export default function Header() {
             <span className="hidden sm:inline-block font-fraunces font-bold text-lg text-brand-cream tracking-wide group-hover:text-brand-orange transition-colors">
               {t("footer.companyName")}
             </span>
-          </a>
+          </Link>
         </div>
 
-        {/* Desktop Navigation Links */}
         <nav className="hidden items-center gap-8 md:flex">
           {navItems.map(({ key, href }) => (
-            <a
+            <Link
               key={key}
               href={href}
               className="text-sm font-medium tracking-wide transition-colors hover:text-brand-orange nav-link-hover py-1"
             >
               {t(`nav.${key}`)}
-            </a>
+            </Link>
           ))}
         </nav>
 
-        {/* Action Controls (Language Selector and Mobile Toggle) */}
         <div className="flex items-center gap-4">
           <button
             onClick={toggleLanguage}
@@ -62,7 +60,6 @@ export default function Header() {
             {language === "en" ? t("nav.toggleToUrdu") : t("nav.toggleToEnglish")}
           </button>
 
-          {/* Hamburger Mobile Menu Button */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="flex flex-col justify-center items-center gap-1.5 md:hidden w-8 h-8 rounded-full border border-brand-wheat-gold/25 bg-white/5 hover:bg-white/10 transition-colors"
@@ -87,11 +84,10 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile Responsive Navigation Overlay */}
       {menuOpen && (
         <nav className="flex flex-col border-t border-brand-wheat-gold/15 bg-brand-dark-green/95 backdrop-blur-lg px-6 pb-6 pt-3 md:hidden space-y-4 shadow-xl">
           {navItems.map(({ key, href }) => (
-            <a
+            <Link
               key={key}
               href={href}
               onClick={() => setMenuOpen(false)}
@@ -101,7 +97,7 @@ export default function Header() {
               <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-brand-wheat-gold rtl:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
               </svg>
-            </a>
+            </Link>
           ))}
         </nav>
       )}

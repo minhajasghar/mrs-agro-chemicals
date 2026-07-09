@@ -10,20 +10,37 @@ function escapeCsvField(value: string): string {
 
 export async function GET() {
   try {
-    const submissions = await prisma.formSubmission.findMany({
+    const contacts = await prisma.contactSubmission.findMany({
       orderBy: { createdAt: "desc" },
     });
 
-    const headers = ["Date", "Name", "Contact Info", "Message", "Status"];
-    const rows = submissions.map((s) =>
-      [
-        escapeCsvField(s.createdAt.toISOString()),
-        escapeCsvField(s.name),
-        escapeCsvField(s.contactInfo),
-        escapeCsvField(s.message),
-        escapeCsvField(s.status),
-      ].join(",")
-    );
+    const franchises = await prisma.franchiseSubmission.findMany({
+      orderBy: { createdAt: "desc" },
+    });
+
+    const headers = ["Date", "Type", "Name", "Contact Info", "Details", "Status"];
+    const rows = [
+      ...contacts.map((s) =>
+        [
+          escapeCsvField(s.createdAt.toISOString()),
+          "Contact",
+          escapeCsvField(s.name),
+          escapeCsvField(s.email),
+          escapeCsvField(s.message),
+          escapeCsvField(s.status),
+        ].join(",")
+      ),
+      ...franchises.map((s) =>
+        [
+          escapeCsvField(s.createdAt.toISOString()),
+          "Franchise",
+          escapeCsvField(s.name),
+          escapeCsvField(s.phone),
+          escapeCsvField(`City: ${s.city}${s.message ? ` | ${s.message}` : ""}`),
+          escapeCsvField(s.status),
+        ].join(",")
+      ),
+    ];
 
     const csv = [headers.join(","), ...rows].join("\n");
 

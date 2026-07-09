@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
-import nodemailer from "nodemailer";
-import { contactInfo } from "@/lib/contactInfo";
+import { prisma } from "@/lib/prisma";
 
 export async function POST(request: Request) {
   try {
@@ -17,33 +16,20 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "City is required." }, { status: 400 });
     }
 
-    const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: process.env.GMAIL_USER,
-        pass: process.env.GMAIL_APP_PASSWORD,
+    await prisma.franchiseSubmission.create({
+      data: {
+        name: name.trim(),
+        phone: phone.trim(),
+        city: city.trim(),
+        message: message?.trim() || null,
       },
-    });
-
-    await transporter.sendMail({
-      from: process.env.GMAIL_USER,
-      to: contactInfo.email,
-      subject: "New Franchise Application",
-      text: `Name: ${name}\nPhone: ${phone}\nCity: ${city}\nMessage: ${message || "N/A"}`,
-      html: `
-        <h2>New Franchise Application</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Phone:</strong> ${phone}</p>
-        <p><strong>City:</strong> ${city}</p>
-        <p><strong>Message:</strong> ${message || "N/A"}</p>
-      `,
     });
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error("Franchise email error:", error);
+    console.error("Franchise form error:", error);
     return NextResponse.json(
-      { error: "Failed to send application. Please try again." },
+      { error: "Failed to submit application. Please try again." },
       { status: 500 }
     );
   }

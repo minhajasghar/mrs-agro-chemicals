@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Contact Us | MRS Agro Chemicals",
     description:
-      "Reach out to MRS Agro Chemicals via phone, WhatsApp, or email. Send us a message and our team will respond promptly.",
+      "Reach out to MRS Agro Chemicals via phone, WhatsApp, or email.",
     type: "website",
   },
 };

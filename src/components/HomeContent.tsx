@@ -10,27 +10,20 @@ export default function HomeContent() {
 
   return (
     <>
-      {/* Premium Full-Bleed Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-brand-dark-green via-brand-dark-green to-[#0D2E10] px-4 py-16 lg:py-0 lg:h-[calc(100vh-80px)] min-h-[500px] lg:min-h-0 flex items-center text-brand-cream">
-        {/* Subtle repeating field pattern texture in background */}
         <div className="absolute inset-0 bg-field-pattern opacity-[0.03] pointer-events-none" />
-        
-        {/* Diagonal stripe texture overlay */}
         <div
           className="absolute inset-0 pointer-events-none opacity-[0.07]"
           style={{
             backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 32px, rgba(255,255,255,0.10) 32px, rgba(255,255,255,0.10) 33px)',
           }}
         />
-        
-        {/* Soft glowing ambient light shapes */}
         <div className="absolute -top-40 -left-40 h-96 w-96 rounded-full bg-brand-light-green/10 blur-[120px] pointer-events-none" />
         <div className="absolute -bottom-40 -right-40 h-96 w-96 rounded-full bg-brand-orange/10 blur-[120px] pointer-events-none" />
 
         <div className="relative mx-auto max-w-7xl w-full">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
-            {/* Column 1: Text Content */}
             <div className="lg:col-span-7 flex flex-col items-start text-start animate-fade-in-up">
               <div className="mb-6 flex items-center gap-3">
                 <div className="relative h-14 w-14 overflow-hidden rounded-full border border-brand-wheat-gold/30 p-0.5 bg-white/10 backdrop-blur-sm shadow-inner">
@@ -74,7 +67,6 @@ export default function HomeContent() {
               </Link>
             </div>
 
-            {/* Column 2: Premium Visual Collage (Asymmetric Card Deck) */}
             <div className="lg:col-span-5 relative flex justify-center lg:justify-end">
               <div className="relative w-full max-w-[400px] aspect-[4/5] rounded-3xl border border-brand-wheat-gold/25 p-3 bg-white/5 backdrop-blur-md shadow-2xl overflow-hidden group">
                 <div className="relative w-full h-full rounded-2xl overflow-hidden">
@@ -89,8 +81,7 @@ export default function HomeContent() {
                   <div className="absolute inset-0 bg-gradient-to-t from-brand-dark-green/60 via-transparent to-transparent" />
                 </div>
                 
-                {/* Floating Glassmorphic Metric Badge */}
-                <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-white/90 dark:bg-brand-charcoal/95 backdrop-blur-md border border-brand-wheat-gold/20 shadow-xl flex items-center gap-4 transition-all duration-300 hover:translate-y-[-2px]">
+                <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-white/90 backdrop-blur-md border border-brand-wheat-gold/20 shadow-xl flex items-center gap-4 transition-all duration-300 hover:translate-y-[-2px]">
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-dark-green text-brand-cream">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -119,28 +110,23 @@ export default function HomeContent() {
         </div>
       </section>
 
-      {/* Signature Section Divider */}
       <FieldRowDivider />
 
-      {/* Premium Intro & Values Section */}
       <section className="bg-brand-cream px-4 py-24">
         <div className="mx-auto max-w-7xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             
-            {/* Left: Asymmetric Heading Statement */}
             <div className="lg:col-span-5 border-s-4 border-brand-light-green ps-6 lg:ps-8 py-2">
               <h2 className="text-3xl sm:text-4xl font-bold text-brand-dark-green leading-tight font-fraunces">
                 {t("home.introHeading")}
               </h2>
             </div>
             
-            {/* Right: Intro Paragraph & Trust Cards */}
             <div className="lg:col-span-7">
               <p className="text-lg sm:text-xl leading-relaxed text-brand-charcoal/80 mb-12 font-light">
                 {t("home.introText")}
               </p>
               
-              {/* Trust Metric Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                 
                 <div className="rounded-2xl border border-brand-wheat-gold/20 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1">
@@ -150,10 +136,10 @@ export default function HomeContent() {
                     </svg>
                   </div>
                   <h3 className="mb-2 text-xl font-bold text-brand-dark-green font-fraunces">
-                    {language === "ur" ? "معیار کی ضمانت" : "Pure Pesticide Guarantee"}
+                    {language === "ur" ? "معیار کی ضمانت" : "Quality Assurance"}
                   </h3>
                   <p className="text-sm text-brand-charcoal/70 leading-relaxed font-work-sans">
-                    {language === "ur" ? "لیبارٹری سے تصدیق شدہ اور کاشتکاروں کی پسند۔" : "Rigorous double-testing pipeline ensuring maximum purity and grain viability."}
+                    {language === "ur" ? "لیبارٹری سے تصدیق شدہ اور کاشتکاروں کی پسند۔" : "Rigorous testing pipeline ensuring maximum quality and effectiveness."}
                   </p>
                 </div>
 
@@ -164,10 +150,10 @@ export default function HomeContent() {
                     </svg>
                   </div>
                   <h3 className="mb-2 text-xl font-bold text-brand-dark-green font-fraunces">
-                    {language === "ur" ? "اعلیٰ پیداوار" : "High Resistance"}
+                    {language === "ur" ? "اعلیٰ تاثیر" : "High Effectiveness"}
                   </h3>
                   <p className="text-sm text-brand-charcoal/70 leading-relaxed font-work-sans">
-                    {language === "ur" ? "خشک سالی اور بیماریوں کے خلاف بہترین مزاحمت۔" : "Climate-resilient hybrids optimized for Pakistani climates and soil variations."}
+                    {language === "ur" ? "مختلف کیڑوں اور بیماریوں کے خلاف بہترین تاثیر۔" : "Climate-resilient solutions optimized for Pakistani conditions."}
                   </p>
                 </div>
 
@@ -193,7 +179,6 @@ export default function HomeContent() {
         </div>
       </section>
 
-      {/* Trusted Numbers Section */}
       <section className="bg-white border-t border-brand-wheat-gold/15 px-4 py-20">
         <div className="mx-auto max-w-5xl">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12 text-center">
@@ -201,7 +186,7 @@ export default function HomeContent() {
               <span className="text-4xl md:text-5xl font-bold text-brand-dark-green font-fraunces">50+</span>
               <div className="my-2 h-0.5 w-8 bg-brand-light-green rounded-full" />
               <p className="text-sm text-brand-charcoal/70 font-medium font-work-sans">
-                {language === "ur" ? "کیڑے مار ادویات کی اقسام" : "Pesticide Varieties"}
+                {language === "ur" ? "کیڑے مار ادویات کی اقسام" : "Product Varieties"}
               </p>
             </div>
             <div className="flex flex-col items-center">
@@ -215,7 +200,7 @@ export default function HomeContent() {
               <span className="text-4xl md:text-5xl font-bold text-brand-dark-green font-fraunces">98%</span>
               <div className="my-2 h-0.5 w-8 bg-brand-light-green rounded-full" />
               <p className="text-sm text-brand-charcoal/70 font-medium font-work-sans">
-                {language === "ur" ? "جراثیم کی شرح" : "Germination Rate"}
+                {language === "ur" ? "اطمینان کی شرح" : "Satisfaction Rate"}
               </p>
             </div>
           </div>

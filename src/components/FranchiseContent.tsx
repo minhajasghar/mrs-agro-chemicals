@@ -3,6 +3,8 @@
 import { useState } from "react";
 import Image from "next/image";
 import { useTranslation } from "@/lib/useTranslation";
+import ContactForm from "@/components/ContactForm";
+import type { FormField } from "@/components/ContactForm";
 
 const infoItems = [
   { labelKey: "franchise.locationLabel", valueKey: "franchise.locationValue" },
@@ -13,12 +15,17 @@ export default function FranchiseContent() {
   const { t, language } = useTranslation();
   const [imgError, setImgError] = useState(false);
 
+  const franchiseFields: FormField[] = [
+    { name: "name", label: t("franchise.formNameLabel"), type: "text", required: true },
+    { name: "phone", label: t("franchise.formPhoneLabel"), type: "tel", required: true },
+    { name: "city", label: t("franchise.formCityLabel"), type: "text", required: true },
+    { name: "message", label: t("franchise.formMessageLabel"), type: "textarea", required: false },
+  ];
+
   return (
     <div className="bg-brand-cream overflow-x-hidden">
-      {/* Compact header + image side by side on desktop */}
       <section className="mx-auto max-w-5xl px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
-          {/* Left: Title */}
           <div className="text-start animate-fade-in-up">
             <p className="mb-2 text-xs uppercase tracking-widest text-brand-wheat-gold font-bold font-work-sans">
               {language === "ur" ? "ہماری نمائش" : "Our Showroom"}
@@ -32,7 +39,6 @@ export default function FranchiseContent() {
             </p>
           </div>
 
-          {/* Right: Shop Image */}
           <div className="rounded-2xl border border-brand-wheat-gold/20 bg-white p-2 shadow-lg">
             <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-gray-200">
               {imgError ? (
@@ -61,7 +67,6 @@ export default function FranchiseContent() {
         </div>
       </section>
 
-      {/* Our Presence Section */}
       <section className="mx-auto max-w-5xl px-4 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           <div className="lg:col-span-5 border-s-4 border-brand-light-green ps-6 py-1">
@@ -77,7 +82,6 @@ export default function FranchiseContent() {
         </div>
       </section>
 
-      {/* Info Cards Section */}
       <section className="bg-white border-y border-brand-wheat-gold/15 px-4 py-16">
         <div className="mx-auto max-w-5xl">
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
@@ -95,6 +99,22 @@ export default function FranchiseContent() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-5xl px-4 py-16">
+        <div className="rounded-3xl border border-brand-wheat-gold/25 bg-white p-8 sm:p-10 shadow-xl relative overflow-hidden">
+          <div className="absolute top-0 left-0 right-0 h-1 bg-brand-orange" />
+          <h3 className="mb-6 text-2xl font-bold text-brand-dark-green font-fraunces">
+            {t("franchise.formHeading")}
+          </h3>
+          <ContactForm
+            endpoint="/api/franchise"
+            submitLabel={t("franchise.formSubmitButton")}
+            successMessage={t("franchise.formSuccessMessage")}
+            errorMessage={t("franchise.formErrorMessage")}
+            fields={franchiseFields}
+          />
         </div>
       </section>
     </div>

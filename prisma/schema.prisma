@@ -14,22 +14,27 @@ model User {
   createdAt DateTime @default(now())
 }
 
-model VisitLog {
-  id         Int      @id @default(autoincrement())
-  page       String
-  referrer   String?
-  country    String?
-  city       String?
-  deviceType String?
-  createdAt  DateTime @default(now())
+model ContactSubmission {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String
+  message   String
+  status    String   @default("new")
+  createdAt DateTime @default(now())
 }
 
-model FormSubmission {
-  id          Int      @id @default(autoincrement())
-  formType    String
-  name        String
-  contactInfo String
-  message     String
-  status      String   @default("new")
-  createdAt   DateTime @default(now())
+model FranchiseSubmission {
+  id        Int      @id @default(autoincrement())
+  name      String
+  phone     String
+  city      String
+  message   String?
+  status    String   @default("new")
+  createdAt DateTime @default(now())
+}
+
+model NewsletterSubscriber {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  createdAt DateTime @default(now())
 }

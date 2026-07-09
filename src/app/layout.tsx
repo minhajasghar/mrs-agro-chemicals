@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import { Fraunces, Work_Sans, Noto_Nastaliq_Urdu, Noto_Sans_Arabic } from "next/font/google";
 import { LanguageProvider } from "@/lib/LanguageContext";
-import HtmlWrapper from "@/components/HtmlWrapper";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -31,8 +28,7 @@ const notoSansArabic = Noto_Sans_Arabic({
   weight: ["400", "500", "600"],
 });
 
-// Update this to the real production domain once finalized
-const siteUrl = "https://mrs-agro-seeds.vercel.app";
+const siteUrl = "https://mrs-agro-pesticides.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -41,7 +37,7 @@ export const metadata: Metadata = {
     template: "%s | MRS Agro Chemicals",
   },
   description:
-    "MRS Agro Chemicals provides premium quality certified Pesticides to farmers across Pakistan. Explore our range of hybrid maize, wheat, cotton, and rice varieties.",
+    "MRS Agro Chemicals provides premium quality certified Pesticides to farmers across Pakistan.",
   icons: {
     icon: { url: "/favicon.svg", type: "image/svg+xml" },
   },
@@ -59,15 +55,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      dir="ltr"
       className={`${fraunces.variable} ${workSans.variable} ${nastaliq.variable} ${notoSansArabic.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col overflow-x-hidden">
+      <body className="min-h-full flex flex-col overflow-x-hidden bg-brand-cream text-brand-charcoal">
         <LanguageProvider>
-          <HtmlWrapper>
-            <Header />
-            <main className="flex-1">{children}</main>
-            <Footer />
-          </HtmlWrapper>
+          {children}
         </LanguageProvider>
       </body>
     </html>

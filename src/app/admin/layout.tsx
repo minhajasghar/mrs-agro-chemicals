@@ -6,7 +6,7 @@ import { usePathname, useRouter } from "next/navigation";
 const navItems = [
   { label: "Dashboard", href: "/admin", icon: "📊" },
   { label: "Submissions", href: "/admin/submissions", icon: "📋" },
-  { label: "Analytics", href: "/admin/analytics", icon: "📈" },
+  { label: "Settings", href: "/admin/settings", icon: "⚙️" },
 ];
 
 export default function AdminLayout({
@@ -17,19 +17,17 @@ export default function AdminLayout({
   const pathname = usePathname();
   const router = useRouter();
 
-  // Don't wrap login page with sidebar
   if (pathname === "/admin/login") {
     return <>{children}</>;
   }
 
   const handleLogout = async () => {
-    document.cookie = "admin_token=; path=/admin; max-age=0";
+    await fetch("/api/admin/logout", { method: "POST" });
     router.push("/admin/login");
   };
 
   return (
     <div className="min-h-screen flex bg-stone-50">
-      {/* Sidebar */}
       <aside className="w-64 shrink-0 bg-emerald-900 text-white flex flex-col">
         <div className="border-b border-emerald-800 px-6 py-5">
           <h1 className="text-lg font-bold tracking-tight">MRS Admin</h1>
@@ -59,7 +57,7 @@ export default function AdminLayout({
         <div className="border-t border-emerald-800 px-3 py-4">
           <button
             onClick={handleLogout}
-            className="flex w-full items-center gap-3 rounded-xl px-4 py-2.5 text-sm font-medium text-emerald-200 transition-colors hover:bg-emerald-800/50 hover:text-white"
+            className="flex w-full items-center gap-3 rounded-xl px-4 py-2.5 text-sm font-medium text-emerald-200 transition-colors hover:bg-emerald-800/50 hover:text-white cursor-pointer"
           >
             <span>🚪</span>
             <span>Logout</span>
@@ -67,7 +65,6 @@ export default function AdminLayout({
         </div>
       </aside>
 
-      {/* Main Content */}
       <main className="flex-1 overflow-auto p-6 lg:p-8">{children}</main>
     </div>
   );

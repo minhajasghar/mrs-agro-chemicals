@@ -1,28 +1,17 @@
 import { prisma } from "@/lib/prisma";
+import { products } from "@/lib/products";
+
+function getCategoriesCount(): number {
+  const uniqueCategories = new Set(products.map((p) => p.categoryEn));
+  return uniqueCategories.size;
+}
 
 export default async function AdminDashboardPage() {
-  const totalSubmissions = await prisma.formSubmission.count();
-
-  const now = new Date();
-  const sevenDaysAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
-
-  const visitsThisWeek = await prisma.visitLog.count({
-    where: { createdAt: { gte: sevenDaysAgo } },
-  });
-
-  const totalVisits = await prisma.visitLog.count();
-
-  const mostVisitedPage = await prisma.visitLog.groupBy({
-    by: ["page"],
-    _count: { page: true },
-    orderBy: { _count: { page: "desc" } },
-    take: 1,
-  });
-
-  const topPage =
-    mostVisitedPage.length > 0
-      ? mostVisitedPage[0].page
-      : "—";
+  const totalSubmissions = await prisma.contactSubmission.count();
+  const totalFranchise = await prisma.franchiseSubmission.count();
+  const totalProducts = products.length;
+  const totalCategories = getCategoriesCount();
+  const totalInquiries = totalSubmissions + totalFranchise;
 
   return (
     <div>
@@ -30,26 +19,38 @@ export default async function AdminDashboardPage() {
 
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
         <StatCard
-          label="Total Submissions"
-          value={totalSubmissions.toString()}
+          label="Total Products"
+          value={totalProducts.toString()}
           color="bg-emerald-500"
         />
         <StatCard
-          label="Visits This Week"
-          value={visitsThisWeek.toString()}
+          label="Categories"
+          value={totalCategories.toString()}
           color="bg-blue-500"
         />
         <StatCard
-          label="Total Visits"
-          value={totalVisits.toString()}
+          label="Contact Inquiries"
+          value={totalSubmissions.toString()}
           color="bg-violet-500"
         />
         <StatCard
-          label="Most Visited Page"
-          value={topPage}
+          label="Franchise Requests"
+          value={totalFranchise.toString()}
           color="bg-amber-500"
         />
       </div>
+
+      {totalInquiries === 0 && (
+        <div className="mt-8 rounded-2xl border border-stone-200 bg-white p-12 text-center">
+          <p className="text-3xl">📭</p>
+          <p className="mt-3 text-lg font-medium text-stone-600">
+            No inquiries yet
+          </p>
+          <p className="mt-1 text-sm text-stone-400">
+            Contact form submissions and franchise requests will appear here.
+          </p>
+        </div>
+      )}
     </div>
   );
 }

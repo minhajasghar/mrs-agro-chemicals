@@ -10,28 +10,29 @@
     "logoAlt": "MRS Agro Chemicals Logo"
   },
   "home": {
-    "heroTitle": "Growing Pakistan's Future, One Pesticide at a Time",
+    "heroTitle": "Growing Pakistan's Future, One Field at a Time",
     "heroSubtitle": "MRS Agro Chemicals brings you premium quality pesticides trusted by farmers across the country.",
     "ctaButton": "Explore Our Products",
     "introHeading": "Why Choose MRS Agro Chemicals",
-    "introText": "We are committed to delivering high-yield, disease-resistant pesticide varieties backed by agricultural expertise and a nationwide franchise network."
+    "introText": "We are committed to delivering high-quality, effective pesticide solutions backed by agricultural expertise and a nationwide franchise network."
   },
   "about": {
     "pageTitle": "About MRS Agro Chemicals",
     "tagline": "Rising to New Heights",
     "heading": "Our Story",
-    "paragraph1": "At MRS Agro Chemicals, we believe that the foundation of a bountiful harvest lies in the quality of the pesticide. For years, we have dedicated ourselves to supplying Pakistan's farmers with premium, high-yield pesticide varieties that they can trust season after season.",
-    "paragraph2": "Backed by decades of agricultural expertise and a deep understanding of Pakistan's diverse growing conditions, we work tirelessly to bring innovation to every field. Our commitment extends beyond pesticides — we partner with farmers to ensure they get the support and guidance needed to thrive.",
+    "paragraph1": "At MRS Agro Chemicals, we believe that the foundation of a bountiful harvest lies in the quality of crop protection. For years, we have dedicated ourselves to supplying Pakistan's farmers with premium, effective pesticide solutions that they can trust season after season.",
+    "paragraph2": "Backed by decades of agricultural expertise and a deep understanding of Pakistan's diverse growing conditions, we work tirelessly to bring innovation to every field. Our commitment extends beyond products — we partner with farmers to ensure they get the support and guidance needed to thrive.",
     "valuesHeading": "What We Stand For",
     "value1Title": "Quality Assurance",
-    "value1Text": "Every pesticide we supply undergoes rigorous testing to ensure germination rates, disease resistance, and adaptability to local climates.",
+    "value1Text": "Every product we supply undergoes rigorous testing to ensure effectiveness, safety, and adaptability to local conditions.",
     "value2Title": "Farmer-First Approach",
-    "value2Text": "We prioritise the needs of the farmer, offering expert guidance and responsive support at every step of the growing season.",
+    "value2Text": "We prioritise the needs of the farmer, offering expert guidance and responsive support at every step.",
     "value3Title": "Nationwide Network",
     "value3Text": "With franchise partners across Pakistan, we make quality pesticides and agricultural expertise accessible to every region.",
     "ceoMessageHeading": "A Message from the CEO",
+    "ceoName": "Malik Umer Rafique",
     "ceoMessageText": "At MRS Agro Chemicals, our mission is simple: empower Pakistan's farmers with innovative, reliable, and affordable crop protection solutions. Since inception, we've grown from a single-district operation to a trusted name in agro-inputs, driven by quality, integrity, and farmer-first service. We don't just sell products — we build partnerships with dealers and farmers to ensure higher yields and sustainable agriculture.",
-    "ceoImageAlt": "CEO of MRS Agro Chemicals",
+    "ceoImageAlt": "Malik Umer Rafique — CEO of MRS Agro Chemicals",
     "companyOverviewHeading": "Company Overview",
     "foundedLabel": "Founded",
     "foundedValue": "2025, Multan",
@@ -60,8 +61,8 @@
   },
   "products": {
     "pageTitle": "Our Products",
-    "pageSubtitle": "Explore our range of premium certified pesticide varieties, carefully selected for Pakistan's diverse growing regions.",
-    "varietyLabel": "Variety",
+    "pageSubtitle": "Explore our range of premium certified pesticide products, carefully formulated for Pakistan's diverse growing regions.",
+    "varietyLabel": "Product",
     "noImageText": "Image Coming Soon",
     "viewDetailsButton": "View Details",
     "backToProducts": "← Back to Products"
@@ -75,7 +76,15 @@
     "locationLabel": "Location",
     "locationValue": "Plot No. 106, Phase II, Industrial Estate, Multan, Punjab, Pakistan",
     "networkLabel": "Network",
-    "networkValue": "Authorized franchise network across Punjab"
+    "networkValue": "Authorized franchise network across Punjab",
+    "formHeading": "Apply for Franchise",
+    "formNameLabel": "Your Name",
+    "formPhoneLabel": "Phone Number",
+    "formCityLabel": "Your City",
+    "formMessageLabel": "Additional Message (Optional)",
+    "formSubmitButton": "Submit Application",
+    "formSuccessMessage": "Application submitted successfully! We will contact you soon.",
+    "formErrorMessage": "Failed to submit application. Please try again or contact us directly."
   },
   "contact": {
     "pageTitle": "Contact Us",
@@ -91,6 +100,12 @@
     "formSubmitButton": "Send Message",
     "formSuccessMessage": "Message sent successfully! We'll get back to you soon.",
     "formErrorMessage": "Failed to send message. Please try again or contact us directly using the details above."
+  },
+  "newsletter": {
+    "placeholder": "Enter your email",
+    "button": "Subscribe",
+    "success": "Subscribed successfully!",
+    "error": "Failed to subscribe."
   },
   "footer": {
     "companyName": "MRS Agro Chemicals",

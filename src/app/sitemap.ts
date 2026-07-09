@@ -1,39 +1,24 @@
 import type { MetadataRoute } from "next";
+import { products } from "@/lib/products";
 
-// Update this to the real production domain once finalized
-const baseUrl = "https://mrs-agro-seeds.vercel.app";
+const siteUrl = "https://mrs-agro-pesticides.vercel.app";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
-    {
-      url: baseUrl,
+  const staticPages = ["", "about", "products", "franchise", "contact"].map(
+    (slug) => ({
+      url: `${siteUrl}/${slug}`,
       lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/about`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/products`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/franchise`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/contact`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-  ];
+      changeFrequency: "monthly" as const,
+      priority: slug === "" ? 1 : 0.8,
+    })
+  );
+
+  const productPages = products.map((product) => ({
+    url: `${siteUrl}/products/${product.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
+  return [...staticPages, ...productPages];
 }
