@@ -149,18 +149,6 @@ export default function AdminDashboardClient({
       bg: "bg-violet-500/10",
       textColor: "text-violet-600",
     },
-    {
-      label: "Newsletter Subscribers",
-      value: totalNewsletter,
-      icon: (
-        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-        </svg>
-      ),
-      gradient: "from-rose-600 to-rose-700",
-      bg: "bg-rose-500/10",
-      textColor: "text-rose-600",
-    },
   ];
 
   return (
@@ -182,7 +170,7 @@ export default function AdminDashboardClient({
       </div>
 
       {/* Stats Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {statCards.map((card) => (
           <div
             key={card.label}
@@ -225,7 +213,7 @@ export default function AdminDashboardClient({
               Welcome to Mrs. Agro Chemicals Admin Panel
             </h2>
             <p className="text-sm leading-relaxed mb-4" style={{ color: "var(--admin-text-secondary)" }}>
-              You are logged in to the control center. Use this portal to manage your products, check category structures, and monitor newsletter subscriptions.
+              You are logged in to the control center. Use this portal to manage your products and check category structures.
             </p>
             <div className="p-4 rounded-xl border flex gap-3 items-start text-xs leading-relaxed" style={{ borderColor: "var(--admin-border)", backgroundColor: "var(--admin-surface)" }}>
               <svg className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
@@ -269,28 +257,6 @@ export default function AdminDashboardClient({
                 </p>
                 <p className="text-xs" style={{ color: "var(--admin-text-muted)" }}>
                   Browse & edit product catalog
-                </p>
-              </div>
-              <svg className="w-4 h-4" style={{ color: "var(--admin-text-muted)" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-              </svg>
-            </Link>
-
-            <Link
-              href="/admin/newsletter"
-              className="flex items-center gap-3 p-3 rounded-xl transition-all hover:bg-[var(--admin-hover)] group"
-            >
-              <div className="w-9 h-9 rounded-xl bg-rose-500/10 flex items-center justify-center text-rose-600 group-hover:scale-110 transition-transform">
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-                </svg>
-              </div>
-              <div className="flex-1 min-w-0">
-                <p className="text-sm font-medium" style={{ color: "var(--admin-text)" }}>
-                  Newsletter
-                </p>
-                <p className="text-xs" style={{ color: "var(--admin-text-muted)" }}>
-                  View subscribers list
                 </p>
               </div>
               <svg className="w-4 h-4" style={{ color: "var(--admin-text-muted)" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
