@@ -150,31 +150,6 @@ export default function AdminDashboardClient({
       textColor: "text-violet-600",
     },
     {
-      label: "Contact Inquiries",
-      value: totalInquiries,
-      icon: (
-        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 9v.906a2.25 2.25 0 01-1.183 1.981l-6.478 3.488M2.25 9v.906a2.25 2.25 0 001.183 1.981l6.478 3.488m8.839 2.51l-4.66-2.51m0 0l-1.023-.55a2.25 2.25 0 00-2.134 0l-1.022.55m0 0l-4.661 2.51m16.5 1.615a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V8.844a2.25 2.25 0 011.183-1.98l7.5-4.04a2.25 2.25 0 012.134 0l7.5 4.04a2.25 2.25 0 011.183 1.98V19.5z" />
-        </svg>
-      ),
-      gradient: "from-blue-600 to-blue-700",
-      bg: "bg-blue-500/10",
-      textColor: "text-blue-600",
-    },
-    {
-      label: "Franchise Requests",
-      value: totalFranchise,
-      icon: (
-        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-          <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-        </svg>
-      ),
-      gradient: "from-amber-600 to-amber-700",
-      bg: "bg-amber-500/10",
-      textColor: "text-amber-600",
-    },
-    {
       label: "Newsletter Subscribers",
       value: totalNewsletter,
       icon: (
@@ -185,18 +160,6 @@ export default function AdminDashboardClient({
       gradient: "from-rose-600 to-rose-700",
       bg: "bg-rose-500/10",
       textColor: "text-rose-600",
-    },
-    {
-      label: "Unread Messages",
-      value: totalUnread,
-      icon: (
-        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
-        </svg>
-      ),
-      gradient: "from-red-600 to-red-700",
-      bg: "bg-red-500/10",
-      textColor: "text-red-600",
     },
   ];
 
@@ -219,11 +182,11 @@ export default function AdminDashboardClient({
       </div>
 
       {/* Stats Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {statCards.map((card) => (
           <div
             key={card.label}
-            className="relative group rounded-2xl p-5 transition-all duration-300 hover:-translate-y-0.5"
+            className="relative group rounded-2xl p-6 transition-all duration-300 hover:-translate-y-0.5"
             style={{
               backgroundColor: "var(--admin-card)",
               border: "1px solid var(--admin-border)",
@@ -235,10 +198,10 @@ export default function AdminDashboardClient({
                 <span className={card.textColor}>{card.icon}</span>
               </div>
             </div>
-            <p className="text-2xl font-bold tracking-tight" style={{ color: "var(--admin-text)" }}>
+            <p className="text-3xl font-bold tracking-tight" style={{ color: "var(--admin-text)" }}>
               {card.value}
             </p>
-            <p className="text-xs font-medium mt-1" style={{ color: "var(--admin-text-secondary)" }}>
+            <p className="text-sm font-medium mt-1.5" style={{ color: "var(--admin-text-secondary)" }}>
               {card.label}
             </p>
             {/* Gradient accent line */}
@@ -247,87 +210,36 @@ export default function AdminDashboardClient({
         ))}
       </div>
 
-      {/* Recent Activity + Quick Actions */}
+      {/* Simplified Layout */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Recent Activity */}
+        {/* Welcome Info Banner */}
         <div
-          className="lg:col-span-2 rounded-2xl p-6"
+          className="lg:col-span-2 rounded-2xl p-6 flex flex-col justify-between"
           style={{
             backgroundColor: "var(--admin-card)",
             border: "1px solid var(--admin-border)",
           }}
         >
-          <div className="flex items-center justify-between mb-5">
-            <h2 className="text-base font-bold" style={{ color: "var(--admin-text)" }}>
-              Recent Activity
+          <div>
+            <h2 className="text-lg font-bold mb-3" style={{ color: "var(--admin-text)" }}>
+              Welcome to Mrs. Agro Chemicals Admin Panel
             </h2>
-            <Link
-              href="/admin/submissions"
-              className="text-xs font-medium hover:opacity-80 transition-opacity"
-              style={{ color: "var(--admin-text-muted)" }}
-            >
-              View all
-            </Link>
-          </div>
-
-          {allRecent.length === 0 ? (
-            <div className="flex flex-col items-center justify-center py-12">
-              <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-4" style={{ backgroundColor: "var(--admin-surface)", border: "1px solid var(--admin-border)" }}>
-                <svg className="w-7 h-7" style={{ color: "var(--admin-text-muted)" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
-                </svg>
+            <p className="text-sm leading-relaxed mb-4" style={{ color: "var(--admin-text-secondary)" }}>
+              You are logged in to the control center. Use this portal to manage your products, check category structures, and monitor newsletter subscriptions.
+            </p>
+            <div className="p-4 rounded-xl border flex gap-3 items-start text-xs leading-relaxed" style={{ borderColor: "var(--admin-border)", backgroundColor: "var(--admin-surface)" }}>
+              <svg className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+              <div>
+                <span className="font-bold block mb-1 text-amber-600">Email Delivery Notice:</span>
+                Contact and Franchise submissions are sent directly to your registered email address <strong>mrsagrochemicals1133@gmail.com</strong>.
               </div>
-              <p className="text-sm font-medium" style={{ color: "var(--admin-text-secondary)" }}>
-                No recent activity
-              </p>
-              <p className="text-xs mt-1" style={{ color: "var(--admin-text-muted)" }}>
-                Submissions will appear here when visitors contact you
-              </p>
             </div>
-          ) : (
-            <div className="space-y-1">
-              {allRecent.map((item) => (
-                <div
-                  key={`${item.type}-${item.id}`}
-                  className="flex items-center gap-3 p-3 rounded-xl transition-colors hover:bg-[var(--admin-hover)]"
-                >
-                  {/* Type icon */}
-                  <div className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 ${
-                    item.iconType === "contact" ? "bg-blue-500/10 text-blue-600" : "bg-amber-500/10 text-amber-600"
-                  }`}>
-                    {item.iconType === "contact" ? (
-                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-                      </svg>
-                    ) : (
-                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-                      </svg>
-                    )}
-                  </div>
-
-                  {/* Content */}
-                  <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium truncate" style={{ color: "var(--admin-text)" }}>
-                      {item.name}
-                    </p>
-                    <p className="text-xs truncate mt-0.5" style={{ color: "var(--admin-text-muted)" }}>
-                      {item.subtitle}
-                    </p>
-                  </div>
-
-                  {/* Status + Time */}
-                  <div className="flex items-center gap-2 shrink-0">
-                    <StatusBadge status={item.status} />
-                    <span className="text-[10px] whitespace-nowrap" style={{ color: "var(--admin-text-muted)" }}>
-                      {timeAgo(item.date)}
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
+          </div>
+          <div className="pt-4 text-xs" style={{ color: "var(--admin-text-muted)" }}>
+            Need help? Contact support or settings.
+          </div>
         </div>
 
         {/* Quick Actions */}
@@ -343,43 +255,20 @@ export default function AdminDashboardClient({
           </h2>
           <div className="space-y-2">
             <Link
-              href="/admin/submissions"
+              href="/admin/products"
               className="flex items-center gap-3 p-3 rounded-xl transition-all hover:bg-[var(--admin-hover)] group"
             >
-              <div className="w-9 h-9 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-600 group-hover:scale-110 transition-transform">
+              <div className="w-9 h-9 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-600 group-hover:scale-110 transition-transform">
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 9v.906a2.25 2.25 0 01-1.183 1.981l-6.478 3.488M2.25 9v.906a2.25 2.25 0 001.183 1.981l6.478 3.488m8.839 2.51l-4.66-2.51m0 0l-1.023-.55a2.25 2.25 0 00-2.134 0l-1.022.55m0 0l-4.661 2.51m16.5 1.615a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V8.844a2.25 2.25 0 011.183-1.98l7.5-4.04a2.25 2.25 0 012.134 0l7.5 4.04a2.25 2.25 0 011.183 1.98V19.5z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
                 </svg>
               </div>
               <div className="flex-1 min-w-0">
                 <p className="text-sm font-medium" style={{ color: "var(--admin-text)" }}>
-                  View Inquiries
+                  Products Catalog
                 </p>
                 <p className="text-xs" style={{ color: "var(--admin-text-muted)" }}>
-                  Check contact submissions
-                </p>
-              </div>
-              <svg className="w-4 h-4" style={{ color: "var(--admin-text-muted)" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-              </svg>
-            </Link>
-
-            <Link
-              href="/admin/franchise"
-              className="flex items-center gap-3 p-3 rounded-xl transition-all hover:bg-[var(--admin-hover)] group"
-            >
-              <div className="w-9 h-9 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-600 group-hover:scale-110 transition-transform">
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-                </svg>
-              </div>
-              <div className="flex-1 min-w-0">
-                <p className="text-sm font-medium" style={{ color: "var(--admin-text)" }}>
-                  Franchise Requests
-                </p>
-                <p className="text-xs" style={{ color: "var(--admin-text-muted)" }}>
-                  Review franchise applications
+                  Browse & edit product catalog
                 </p>
               </div>
               <svg className="w-4 h-4" style={{ color: "var(--admin-text-muted)" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
@@ -401,29 +290,7 @@ export default function AdminDashboardClient({
                   Newsletter
                 </p>
                 <p className="text-xs" style={{ color: "var(--admin-text-muted)" }}>
-                  View subscribers
-                </p>
-              </div>
-              <svg className="w-4 h-4" style={{ color: "var(--admin-text-muted)" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-              </svg>
-            </Link>
-
-            <Link
-              href="/admin/products"
-              className="flex items-center gap-3 p-3 rounded-xl transition-all hover:bg-[var(--admin-hover)] group"
-            >
-              <div className="w-9 h-9 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-600 group-hover:scale-110 transition-transform">
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
-                </svg>
-              </div>
-              <div className="flex-1 min-w-0">
-                <p className="text-sm font-medium" style={{ color: "var(--admin-text)" }}>
-                  Products Catalog
-                </p>
-                <p className="text-xs" style={{ color: "var(--admin-text-muted)" }}>
-                  Browse product catalog
+                  View subscribers list
                 </p>
               </div>
               <svg className="w-4 h-4" style={{ color: "var(--admin-text-muted)" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
