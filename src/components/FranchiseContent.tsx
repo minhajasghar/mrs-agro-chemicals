@@ -76,7 +76,7 @@ export default function FranchiseContent() {
               <FadeUp>
                 <div className="relative aspect-[16/10] rounded-[32px] overflow-hidden bg-gradient-to-br from-brand-cream to-brand-dark-green/5 border border-brand-dark-green/5">
                   <Image
-                    src="/images/franchise-shop.jpeg"
+                    src="/images/franchise.jpeg"
                     alt={t("franchise.shopImageAlt")}
                     fill
                     className="object-cover"
