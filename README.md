@@ -39,9 +39,6 @@ npm run build
 npm start
 ```
 
-## Deployment
-
-Optimized for deployment on Vercel.
 
 ## License
 
